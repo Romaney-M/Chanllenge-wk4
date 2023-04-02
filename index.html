@@ -18,14 +18,32 @@
     <div class="start_btn"><button>Start Quiz</button></div>
 </body>
     <div class="MContainer">
-        <div class="Col T-left">
-            <a href="#" id="viewHighScore"> Veiw High Score</a>
+        <div class="row">
+            <div class="Col T-left">
+                <a href="#" id="viewHighScore"> Veiw High Score</a>
+            </div>
+            <div id="timer" class="col T-right">
+                <i class="clock"></i> Time: <span id="Timeleft">0</span>
+            </div>
+            <div id="timeup" class="col T-right" style="display: none;">Time's Up!!!</div>
         </div>
-        <div id="timer" class="col T-right">
-            <i class="clock"></i> Time: <span id="Timeleft">0</span>
-        </div>
-        <div id="timeup" class="col T-right" style="display: none;">Time's Up!!!</div>
+
+        <div id="allOther" class="row T-left">
+            <div class="col-md-2"></div>
+            <main class="col-md mt-5">
+                <!-- part 1 the start -->
+                <div id="start" class="m-2 justiffy-content-center">
+                    <h1 class="font-weight-bold pl-5 pr-5"> Code Game: what do you really know??</h1>
+                    <p class="p-5"> So Im ganna quiz you on what you knwo about JavaScript. try to get the best highscore you can! Oh also when you geta question wrong your time is cut by 10 sec, so dont get too many wrong... GOOD LUCK!</p>
+                    <button type="button" id="startQuiz-btn" class="btn btn-infoo ml-5 align-center"> Start Quiz</button>
+                </div>
+
+                <!-- part 2 the quiz -->
 
 
+            </main>
+
+
+        </div>
     </div>
 </html>
