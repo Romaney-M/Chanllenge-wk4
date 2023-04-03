@@ -243,5 +243,5 @@ goBackBtn.addEventListener("click", function() {
 clearHighScoreBtn.addEventListener("click", function(){
     window.localStorage.removeItem("high scores");
     listOfHighScores.innerHTML = "High Scores Cleared!";
-    listOfHighScores.setAttribute("style", "font-family: 'Archivo', sans-serif; font-style: italic;")
+    listOfHighScores.setAttribute("style", "font-family: sans-serif; font-style: italic;")
 });
