@@ -222,26 +222,26 @@ function showHS(){
 }
 
 startQuizBtn.addEventListener("click", newQuiz);
-choiceA.addEventListener("click", chooseA);
-choiceB.addEventListener("click", chooseB);
-choiceC.addEventListener("click", chooseC);
-choiceD.addEventListener("click", chooseD);
+opA.addEventListener("click", chooseA);
+opB.addEventListener("click", chooseB);
+opC.addEventListener("click", chooseC);
+opD.addEventListener("click", chooseD);
 
-submitInitialBtn.addEventListener("click", function(event){ 
-    storeHighScores(event);
+subNameBtn.addEventListener("click", function(event){ 
+    storeHS(event);
 });
 
 viewHighScore.addEventListener("click", function(event) { 
-    showHighScores(event);
+    showHS(event);
 });
 
 goBackBtn.addEventListener("click", function() {
     startDiv.style.display = "block";
-    highScoreSection.style.display = "none";
+    highScoreSec.style.display = "none";
 });
 
 clearHighScoreBtn.addEventListener("click", function(){
     window.localStorage.removeItem("high scores");
-    listOfHighScores.innerHTML = "High Scores Cleared!";
-    listOfHighScores.setAttribute("style", "font-family: sans-serif; font-style: italic;")
+    lisHS.innerHTML = "High Scores Cleared!";
+    lisHS.setAttribute("style", "font-family: sans-serif; font-style: italic;")
 });
