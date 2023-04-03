@@ -163,4 +163,62 @@ function gameOver(){
     finalScore.textContent = correct;
 }
 
-function
+function storeHS (event){
+    event.preventDefault();
+    if (nameInput.value === ""){
+        alert("Enter your name!");
+        return;
+    }
+    startDiv.style.display = "none";
+    timer.style.display = "none";
+    timeUp.style.display = "none";
+    Summary.style.display = "none";
+    highScoreSec.style.display = "block";
+     
+    var savedHS = localStorage.getItem("high Scores");
+    var scoresArray;
+
+    if(savedHS === null) {
+        scoresArray = [];
+    } else {
+        scoresArray = JSON.parse(savedHS)
+    }
+
+    var userScore = {
+        Name: nameInput.value,
+        score: finalScore.textContent
+    };
+
+    console.log(userScore);
+    scoresArray.push(userScore);
+
+    var scoreArrayString = JSON.stringify(scoresArray);
+    window.localStorage.setItem("high scores", scoreArrayString);
+    showHS();
+}
+
+var i = 0;
+function showHS(){
+    startDiv.style.display = "none";
+    timer.style.display = "none";
+    questionsQ.style.display = "none";
+    timeUp.style.display = "none";
+    Summary.style.display = "none";
+    highScoreSec.style.display = "block";
+
+    var savedHS = localStorage.getItem("high scores");
+    if (savedHS === null){
+        return;
+    }
+    console.log(savedHS);
+
+    var storedHS = JSON.parse(savedHS);
+
+    for (; i < storedHS.length; i++){
+        var newHS = document.createElement("p");
+        newHS.innerHTML = storeHS[i].Name + ":" + storeHS[i].score;
+        lisHS.appendChild(newHS);
+    }
+}
+
+startQuizBtn.addEventListener("click", newQuiz);
