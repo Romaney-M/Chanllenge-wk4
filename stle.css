@@ -40,12 +40,12 @@ p {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
-#questionTitle {
+#Qtitle {
     font-size: 25px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-#answercheck {
+#checkAn {
     font-style: italic;
     color: darkolivegreen;
 }
