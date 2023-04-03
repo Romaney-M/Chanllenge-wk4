@@ -104,22 +104,63 @@ function newQuiz(){
         var startTimer = setInterval(function(){
             totalTime--;
             timeLeft.textContent = totalTime;
-            if(totalTime <=0){
+            if(totalTime <=0) {
                 clearInterval(startTimer);
-                if (questionIndex < questionsQ.length -1){
+                if (questionIndex < questions.length -1){
                     gameOver();
                 }
             }
         },1000);
         showQuiz();
-};
+}
 
-function gameOver({
+function showQuiz(){
+    nextQ();
+}
+
+function nextQ(){
+    qTitle.textContent = questionsQ[questionIndex].question;
+    opA.textContent = questions[questionIndex].choices[0];
+    opB.textContent = questions[questionIndex].choices[1];
+    opC.textContent = questions[questionIndex].choices[2];
+    opD.textContent = questions[questionIndex].choices[3];
+}
+
+function checkAn(answer) {
+    var lineBreak = document.getElementById("lineBreak");
+    lineBreak.style.display = "block";
+    answercheck.style.display = "block";
+
+    if(questions[questionIndex].answer === questions[questionIndex].choices[answer]){
+        correct++;
+        answercheck.textContent = "Correct!";
+    }else {
+        totalTime -=10;
+        timeLeft.textContent = totalTime;
+        answercheck.textContent = "Wrong! Right answer is: " + questions[questionIndex].answer;
+    }
+
+    questionIndex++;
+    if (questionIndex < questions.length){
+        nextQ();
+    } else{
+        gameOver();
+    }
+}
+
+function chooseA() {checkAn(0); }
+function chooseB() {checkAn(1); }
+function chooseC() {checkAn(2); }
+function chooseD() {checkAn(3); }
+
+function gameOver(){
     Summary.style.display = "block";
-    questionsQ.style.display = "none";
+    questionsQ .style.display = "none";
     startDiv.style.display = "none";
     timer.style.display = "none";
     timeUp.style.display = "block";
 
     finalScore.textContent = correct;
-})
+}
+
+function
