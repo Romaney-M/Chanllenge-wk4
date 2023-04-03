@@ -64,10 +64,62 @@ var timeUp = document.getElementById("timeup");
 var startDiv = document.getElementById("start");
 var startQuizBtn = document.getElementById("startQuiz-btn");
 // <------------------------------------------------------------>
-var questions = document.getElementById("Qdiv");
+var questionsQ = document.getElementById("Qdiv");
 var qTitle = document.getElementById("Qtitle");
 var opA = document.getElementById("btn0");
 var opB = document.getElementById("btn1");
 var opC = document.getElementById("btn2");
 var opD = document.getElementById("btn3");
 var answercheck = document.getElementById("answerCheck");
+
+var Summary = document.getElementById("summary");
+var subName = document.getElementById("subNameBtn");
+var nameInput = document.getElementById("nameInput");
+var everthing = document.getElementById("allOther");
+
+var highScoreSec = document.getElementById("highScoreSec");
+var finalScore = document.getElementById("finalScore");
+var goBackBtn = document.getElementById("goBack");
+var clearHS = document.getElementById("clearHighScore");
+var lisHS = document.getElementById("listOfScores");
+
+var correct = 0;
+var questionNum = 0;
+var scoreResult;
+var questionIndex = 0;
+
+// Functions
+var totalTime = 120;
+function newQuiz(){
+    questionIndex = 0;
+    totalTime = 119;
+    timeLeft.textContent = totalTime;
+    nameInput.textContent = "";
+
+    startDiv.style.display = "none";
+    questionsQ.style.display = "block";
+    timer.style.display = "block";
+    timeUp.style.display = "none";
+
+        var startTimer = setInterval(function(){
+            totalTime--;
+            timeLeft.textContent = totalTime;
+            if(totalTime <=0){
+                clearInterval(startTimer);
+                if (questionIndex < questionsQ.length -1){
+                    gameOver();
+                }
+            }
+        },1000);
+        showQuiz();
+};
+
+function gameOver({
+    Summary.style.display = "block";
+    questionsQ.style.display = "none";
+    startDiv.style.display = "none";
+    timer.style.display = "none";
+    timeUp.style.display = "block";
+
+    finalScore.textContent = correct;
+})
